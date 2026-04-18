@@ -1,7 +1,7 @@
 import { generateId } from "../utils/id.js";
 
 export const attachLogger = (req, res)=> {
-    const id = generateId;
+    const id = generateId();
     const startTime = Date.now()
 
     //attach

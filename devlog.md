@@ -28,3 +28,13 @@ Also learned that not all headers should be forwarded (some are connection-speci
 
 Main takeaway:
 Even small details like headers can completely break a working system.
+
+## Day 3
+
+Added simple in-memory caching for GET requests.
+
+Now repeated requests don’t always hit the upstream server.
+
+Learned how to store responses and reuse them with a TTL.
+
+Also had to stop streaming and buffer the response to cache it.

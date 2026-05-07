@@ -8,7 +8,7 @@ export const attachLogger = (req, res)=> {
     req.id = id;
     console.log(`[${id}] → ${req.method} ${req.url} `);
 
-    res.on("feinish", ()=> {
+    res.on("finish", ()=> {
         const duration = Date.now() - startTime;
 
         console.log(`[${id}] ← ${req.method} ${req.url} ${res.statusCode} ${duration}ms`);

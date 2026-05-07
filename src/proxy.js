@@ -2,14 +2,10 @@ import http from "http";
 import { config } from "./config.js";
 import { getCacheKey } from "./utils/cacheKey.js";
 import { getFromCache, saveToCache } from "./middlewares/cache.js";
+import { normalizeHeaders } from "./utils/headers.js";
 
 export function handleProxy(req, res) {
-  const headers = { ...req.headers };
-
-  delete headers.connection;
-  delete headers["transfer-encoding"];
-
-  headers.host = config.TARGET_HOST;
+  const headers = normalizeHeaders(req.headers, config.TARGET_HOST)
 
   const options = {
     hostname: config.TARGET_HOST,
@@ -20,6 +16,7 @@ export function handleProxy(req, res) {
   };
 
   console.log("Incoming:", req.method, req.url);
+  console.log(headers);
 
   const key = getCacheKey(req);
 

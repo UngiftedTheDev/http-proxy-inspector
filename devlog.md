@@ -38,3 +38,15 @@ Now repeated requests don’t always hit the upstream server.
 Learned how to store responses and reuse them with a TTL.
 
 Also had to stop streaming and buffer the response to cache it.
+
+## Day 4
+
+Added proper header normalization.
+
+Learned that some headers are only meant for a single connection and should not be forwarded by a proxy.
+
+Also added a custom proxy header for debugging and tracing requests.
+
+Main takeaway:
+A proxy is not just forwarding requests — it has to adapt them correctly.
+
